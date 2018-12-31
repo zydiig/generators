@@ -141,12 +141,12 @@ class Loader extends RecipeLoader with GenericConfigLoader {
       val toSend = new NBTTagCompound
 
       toSend.setInteger("energy", energy)
-      toSend.setTag("primaryInput", NBT.from(in1s.writeToNBT))
-      toSend.setTag("secondaryInput", NBT.from(in2s.writeToNBT))
-      toSend.setTag("primaryOutput", NBT.from(out1s.writeToNBT))
+      toSend.setTag("input", NBT.from(in1s.writeToNBT))
+      toSend.setTag("input2", NBT.from(in2s.writeToNBT))
+      toSend.setTag("output", NBT.from(out1s.writeToNBT))
       if (!out2s.isEmpty) {
-        toSend.setTag("secondaryOutput", NBT.from(out2s.writeToNBT))
-        toSend.setInteger("secondaryChance", chance)
+        toSend.setTag("output2", NBT.from(out2s.writeToNBT))
+        toSend.setInteger("chance", chance)
       }
 
       FMLInterModComms.sendMessage("thermalexpansion", "AddSmelterRecipe", toSend)
